@@ -1,0 +1,351 @@
+@import url('https://fonts.googleapis.com/css?family=Chewy&display=swap');
+
+*, *:after, *:before {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Chewy', cursive;
+  text-transform: uppercase;
+  color: #fff;
+  letter-spacing: 2px;
+}
+
+.container {
+  background: #3138AE;
+}
+
+.wrapper {
+  max-width: 800px;
+  margin: auto;
+}
+
+.screen-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px 20px 70px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hidden {
+  display: none;
+}
+
+.quiz-screen-step {
+  color: #6B71E4;
+}
+
+.quiz-image-wrapper {
+  max-width: 100%;
+  margin: 50px auto;
+  position: relative;
+}
+
+.quiz-image-wrapper:before {
+  content: '';
+  background: url('./assets/Wapuu-Bg.png') no-repeat center;
+  background-size: contain;
+  height: 100%;
+  left: -65px;
+  right: -65px;
+  display: block;
+  position: absolute;
+}
+
+.quiz-image {
+  max-width: 100%;
+  width: 300px;
+  position: relative;
+  z-index: 1;
+}
+
+.quiz-timer {
+  width: 550px;
+  max-width: 100%;
+  height: 20px;
+  background: #000501;
+  border-radius: 3em;
+  margin-bottom: 50px;
+  padding: 5px 6px;
+}
+
+.quiz-timer span {
+  display: inline-block;
+  background: linear-gradient(90deg, #FFD500, #FF5700);
+  height: 10px;
+  vertical-align: top;
+  border-radius: 3em;
+
+  animation: progressbar-countdown;
+  animation-duration: 10s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: paused;
+  animation-timing-function: linear;
+}
+
+@keyframes progressbar-countdown {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 0%;
+  }
+}
+
+.quiz-question {
+  margin-bottom: 50px;
+}
+
+.how-to-play-screen .default-button {
+  margin-bottom: 60px;
+  margin-top: 30px;
+}
+
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+  width: 600px;
+  max-width: 100%;
+}
+
+.button-outer {
+  flex-basis: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+  max-width: 100%;
+}
+
+.default-button {
+  background: #FFD500;
+  border-radius: 3em;
+  font-family: 'Chewy', cursive;
+  font-size: 18px;
+  color: #010501;
+  letter-spacing: 2.45px;
+  border: 4px solid #010501;
+  padding: 10px 8px;
+  text-transform: uppercase;
+  transition: background .2s;
+  outline: none;
+  width: 250px;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.default-button:hover {
+  background: #FF8800;
+}
+
+.default-button[disabled] {
+  border-color: #5057D4;
+  background: transparent;
+  color: #5057D4;
+  cursor: default;
+}
+
+.default-button[disabled]:hover {
+  background: transparent;
+}
+
+.default-button.correct {
+  cursor: default;
+  background: #ACBD00;
+  color: #010501;
+  border-color: #010501;
+}
+
+.default-button.correct::before {
+  content: '';
+  height: 18px;
+  width: 18px;
+  display: inline-block;
+  background: url('./assets/check-mark.png') center no-repeat;
+  background-size: contain;
+  vertical-align: middle;
+  margin-right: 5px;
+  margin-top: -2px;
+}
+
+.default-button.correct:hover {
+  background: #ACBD00;
+  color: #010501;
+  border-color: #010501;
+}
+
+.default-button.wrong {
+  cursor: default;
+  background: #F6484C;
+  color: #010501;
+  border-color: #010501;
+}
+
+.default-button.wrong::before {
+  content: '';
+  height: 18px;
+  width: 18px;
+  display: inline-block;
+  background: url('./assets/cross.png') center no-repeat;
+  background-size: contain;
+  vertical-align: middle;
+  margin-right: 5px;
+  margin-top: -2px;
+}
+
+.default-button.wrong:hover {
+  background: #F6484C;
+  color: #010501;
+  border-color: #010501;
+}
+.result-screen .default-button {
+  margin-bottom: 30px;
+}
+
+.title {
+  font-size: 32px;
+  margin-top: 100px;
+}
+.text {
+  line-height: 24px;
+  font-size: 16px;
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+  color: #B8BBF5;
+  text-transform: none;
+}
+
+.quiz-logo {
+  position: absolute;
+  bottom: 20px;
+}
+
+.quiz-corner-logo {
+  position: absolute;
+  left: 10px;
+  top: 15px;
+  width: 100px;
+}
+.close-button {
+  position: absolute;
+  top: 50px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-family: 'Chewy', cursive;
+  font-size: 34px;
+  outline: none;
+  text-transform: none;
+  cursor: pointer;
+  transition: color .2s;
+}
+
+.close-button:hover {
+  color: #eee;
+}
+.score-name {
+  margin: 0 0 28px;
+  font-size: 46px;
+}
+.score {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+.description {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: #B8BBF5;
+  text-transform: none;
+  line-height: 24px;
+  display: inline-block;
+  margin-bottom: 30px;
+}
+
+.share-container {
+  margin-bottom: 40px;
+}
+
+.share-container a {
+  margin: 0 20px;
+}
+
+
+.facebook-share-logo,
+.ffacebook-share-text {
+  display: inline-block;
+}
+
+.facebook-share-logo {
+  display: inline-block;
+  width: 16px;
+  vertical-align: middle;
+}
+
+a.facebook-share-button {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  box-shadow: none;
+  background: #4267b2;
+  border: 1px solid #4267b2;
+  color: #fff;
+  border-radius: 3px;
+  padding: 2px 3px;
+  line-height: 13px;
+  letter-spacing: 1.1px;
+  text-transform: none;
+  text-decoration: none;
+}
+
+.facebook-share-text {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 0 2px 0 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+.twitter-tweet-button {
+  display: inline-block;
+  background: #3291DA;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 3px 5px;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: 1.1px;
+  text-transform: none;
+  text-decoration: none;
+  color: #fff;
+  border-radius: 3px;
+}
+
+.twitter-tweet-button svg {
+  display: inline-block;
+  width: 16px;
+  vertical-align: middle;
+}
+
+.twitter-tweet-text {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0 2px 0 0;
+}
+
+@media screen and (min-width: 700px) {
+  .screen-section {
+    padding: 50px;
+  }
+  .button-outer {
+    flex-basis: 50%;
+  }
+}
