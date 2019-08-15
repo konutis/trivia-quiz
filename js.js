@@ -1,3 +1,5 @@
+// remove scroll on smaller screens  - make image smaller
+
 (function() {
   let startButton = document.querySelector('#start');
   let startButton2 = document.querySelector('#start2');
@@ -51,6 +53,7 @@
     let answerButtons = answersContainer.querySelectorAll('.default-button');
 
     answerButtons.forEach(function(element) {
+      element.blur();
       element.disabled = false;
       element.classList.remove('correct');
       element.classList.remove('wrong');
@@ -95,12 +98,12 @@
   }
 
   function getAnswers (correctAnswer) {
-    let answers = [correctAnswer];
+    let allAnswers = [correctAnswer];
     for (let i = 0; i < 3; i++) {
-      let fakeAnswer = getFakeAnswer(answers);
-      answers.push(fakeAnswer);
+      let fakeAnswer = getFakeAnswer(allAnswers);
+      allAnswers.push(fakeAnswer);
     }
-    return shuffle(answers);
+    return shuffle(allAnswers);
   }
 
   function getFakeAnswer (answers) {
@@ -131,7 +134,7 @@
   function getRandomIndexForQuestion () {
     let index = Math.floor(Math.random() * data.length);
     if (usedQuestions.indexOf(index) > -1) {
-      return getRandomIndex();
+      return getRandomIndexForQuestion();
     }
     return index;
   }
@@ -201,20 +204,20 @@
 
     if (score < 4) {
       scoreNameElement.innerHTML = 'Newbuu';
-      scoreImage.src = './assets/wapuu-dumb.png'
-      twitterTweetButton.href = 'https://twitter.com/intent/tweet?text=My score - Newbuu! ' + encodeURIComponent(location.href);
+      scoreImage.src = './assets/wapuu-dumb.png';
+      twitterTweetButton.href = `https://twitter.com/intent/tweet?text=My score - ${score.toString()} out of 10! I am a Newbuu! ${encodeURIComponent(location.href)}`;
     } else if (score < 7) {
       scoreNameElement.innerHTML = 'Rookiepuu';
-      scoreImage.src = './assets/wapuu-rookie.png'
-      twitterTweetButton.href = 'https://twitter.com/intent/tweet?text=My score - Rookiepuu! ' + encodeURIComponent(location.href);
+      scoreImage.src = './assets/wapuu-rookie.png';
+      twitterTweetButton.href = `https://twitter.com/intent/tweet?text=My score - ${score.toString()} out of 10! I am a Rookiepuu! ${ encodeURIComponent(location.href)}`;
     } else if (score < 10) {
       scoreNameElement.innerHTML = 'Wapuu expertuu';
-      twitterTweetButton.href = 'https://twitter.com/intent/tweet?text=My score - Wapuu expertuu! ' + encodeURIComponent(location.href);
+      twitterTweetButton.href = `https://twitter.com/intent/tweet?text=My score - ${score.toString()} out of 10! I am a Wapuu expertuu! ${encodeURIComponent(location.href)}`;
       scoreImage.src = './assets/Game-Logo.png'
     } else {
       scoreNameElement.innerHTML = 'Grandmuuster';
-      scoreImage.src = './assets/wapuu-grandmaster.png'
-      twitterTweetButton.href = 'https://twitter.com/intent/tweet?text=My score - Grandmuuster! ' + encodeURIComponent(location.href);
+      scoreImage.src = './assets/wapuu-grandmaster.png';
+      twitterTweetButton.href = `https://twitter.com/intent/tweet?text=My score - ${score.toString()} out of 10! I am a Grandmuuster! encodeURIComponent(location.href)`;
     }
 
     quizScreen.classList.add('hidden');

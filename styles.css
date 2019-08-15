@@ -41,7 +41,7 @@ body {
 
 .quiz-image-wrapper {
   max-width: 100%;
-  margin: 50px auto;
+  margin: 30px auto 20px;
   position: relative;
 }
 
@@ -58,7 +58,7 @@ body {
 
 .quiz-image {
   max-width: 100%;
-  width: 300px;
+  width: 250px;
   position: relative;
   z-index: 1;
 }
@@ -69,7 +69,7 @@ body {
   height: 20px;
   background: #000501;
   border-radius: 3em;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   padding: 5px 6px;
 }
 
@@ -98,7 +98,7 @@ body {
 }
 
 .quiz-question {
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 
 .how-to-play-screen .default-button {
@@ -343,7 +343,7 @@ a.facebook-share-button {
 
 @media screen and (min-width: 700px) {
   .screen-section {
-    padding: 50px;
+    padding: 20px 50px;
   }
   .button-outer {
     flex-basis: 50%;
