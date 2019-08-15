@@ -1,5 +1,3 @@
-// remove scroll on smaller screens  - make image smaller
-
 (function() {
   let startButton = document.querySelector('#start');
   let startButton2 = document.querySelector('#start2');
