@@ -101,6 +101,10 @@ body {
   margin-bottom: 30px;
 }
 
+.how-to-play-screen {
+  padding-top: 60px;
+}
+
 .how-to-play-screen .default-button {
   margin-bottom: 60px;
   margin-top: 30px;
@@ -343,7 +347,7 @@ a.facebook-share-button {
 
 @media screen and (min-width: 700px) {
   .screen-section {
-    padding: 20px 50px;
+    padding: 20px 50px 70px;
   }
   .button-outer {
     flex-basis: 50%;
