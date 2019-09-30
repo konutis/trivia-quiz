@@ -200,24 +200,37 @@
 
     scoreElement.innerHTML = score.toString();
     scoreTotalElement.innerHTML = questionLength.toString();
+    let metaText = ''
 
     if (score < 4) {
       scoreNameElement.innerHTML = 'Newbuu';
       scoreImage.src = './assets/wapuu-dumb.png';
       twitterTweetButton.href = `https://twitter.com/intent/tweet?text=My score - ${score.toString()} out of 10! I am a Newbuu! ${encodeURIComponent(location.href)}`;
+      metaText = `My score - ${score.toString()} out of 10! I am a Newbuu!`
     } else if (score < 7) {
       scoreNameElement.innerHTML = 'Rookiepuu';
       scoreImage.src = './assets/wapuu-rookie.png';
       twitterTweetButton.href = `https://twitter.com/intent/tweet?text=My score - ${score.toString()} out of 10! I am a Rookiepuu! ${ encodeURIComponent(location.href)}`;
+      metaText = `My score - ${score.toString()} out of 10! I am a Rookiepuu!`
     } else if (score < 10) {
       scoreNameElement.innerHTML = 'Wapuu expertuu';
       twitterTweetButton.href = `https://twitter.com/intent/tweet?text=My score - ${score.toString()} out of 10! I am a Wapuu expertuu! ${encodeURIComponent(location.href)}`;
       scoreImage.src = './assets/Game-Logo.png'
+      metaText = `My score - ${score.toString()} out of 10! I am a Wapuu expertuu!`
     } else {
       scoreNameElement.innerHTML = 'Grandmuuster';
       scoreImage.src = './assets/wapuu-grandmaster.png';
       twitterTweetButton.href = `https://twitter.com/intent/tweet?text=My score - ${score.toString()} out of 10! I am a Grandmuuster! encodeURIComponent(location.href)`;
+      metaText = `My score - ${score.toString()} out of 10! I am a Grandmuuster!`
     }
+
+    let metaElement = document.querySelector('meta[name=description]');
+    metaElement.parentNode.removeChild(metaElement);
+
+    let newMetaElement = document.createElement('meta')
+    newMetaElement.name = 'description'
+    newMetaElement.content = metaText
+    document.head.appendChild(newMetaElement)
 
     quizScreen.classList.add('hidden');
     resultScreen.classList.remove('hidden');
