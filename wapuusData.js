@@ -105,7 +105,7 @@ let data = [
   },
   {
     "image_name": "027",
-    "city": "Orlando "
+    "city": "Orlando"
   },
   {
     "image_name": "028",
@@ -441,7 +441,7 @@ let data = [
   },
   {
     "image_name": "165",
-    "city": "Raleigh "
+    "city": "Raleigh"
   },
   {
     "image_name": "166",
