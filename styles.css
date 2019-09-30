@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Chewy&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
 *, *:after, *:before {
   box-sizing: border-box;
@@ -54,6 +55,15 @@ body {
   right: -65px;
   display: block;
   position: absolute;
+}
+
+.main-screen-logo {
+  display: inline-block;
+  margin-bottom: 60px;
+  max-width: 100%;
+  margin-top: -48px;
+  position: relative;
+  z-index: 1;
 }
 
 .quiz-image {
@@ -220,7 +230,7 @@ body {
 .text {
   line-height: 24px;
   font-size: 16px;
-  font-family: 'Arial', sans-serif;
+  font-family: 'Roboto', sans-serif;
   text-align: center;
   color: #B8BBF5;
   text-transform: none;
@@ -265,7 +275,7 @@ body {
 }
 .description {
   text-align: center;
-  font-family: Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 16px;
   color: #B8BBF5;
   text-transform: none;
@@ -276,12 +286,11 @@ body {
 
 .share-container {
   margin-bottom: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
 }
-
-.share-container a {
-  margin: 0 20px;
-}
-
 
 .facebook-share-logo,
 .ffacebook-share-text {
@@ -300,49 +309,72 @@ a.facebook-share-button {
   box-sizing: border-box;
   box-shadow: none;
   background: #4267b2;
-  border: 1px solid #4267b2;
   color: #fff;
-  border-radius: 3px;
-  padding: 2px 3px;
+  padding: 12px 8px;
   line-height: 13px;
   letter-spacing: 1.1px;
   text-transform: none;
   text-decoration: none;
+  text-align: center;
+  width: 200px;
+  max-width: 100%;
+  vertical-align: top;
+  border-radius: 3em;
+  transition: background .2s;
+}
+
+a.facebook-share-button:hover {
+  background: #335DB2;
 }
 
 .facebook-share-text {
-  font-family: Helvetica, Arial, sans-serif;
-  font-size: 13px;
-  font-weight: bold;
-  padding: 0 2px 0 0;
+  font-family: 'Chewy', cursive;
+  font-size: 18px;
+  text-transform: uppercase;
   -webkit-font-smoothing: antialiased;
+  vertical-align: middle;
+}
+
+.share-button-icon {
+  vertical-align: middle;
+  margin-right: 12px;
 }
 
 .twitter-tweet-button {
+  vertical-align: top;
   display: inline-block;
   background: #3291DA;
   font-family: Helvetica, Arial, sans-serif;
   font-size: 13px;
-  font-weight: bold;
-  padding: 3px 5px;
+  padding: 14px 8px;
   -webkit-font-smoothing: antialiased;
   letter-spacing: 1.1px;
   text-transform: none;
   text-decoration: none;
   color: #fff;
-  border-radius: 3px;
+  text-align: center;
+  width: 200px;
+  max-width: 100%;
+  border-radius: 3em;
+  transition: background .2s;
 }
 
-.twitter-tweet-button svg {
-  display: inline-block;
-  width: 16px;
-  vertical-align: middle;
+.twitter-tweet-button:hover {
+  background: #1884DA;
+}
+
+.share-container .default-button {
+  width: 200px;
+  vertical-align: top;
 }
 
 .twitter-tweet-text {
   display: inline-block;
+  font-family: 'Chewy', cursive;
+  font-size: 18px;
+  text-transform: uppercase;
+  -webkit-font-smoothing: antialiased;
   vertical-align: middle;
-  padding: 0 2px 0 0;
 }
 
 @media screen and (min-width: 700px) {

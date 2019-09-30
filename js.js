@@ -70,6 +70,7 @@
       questionData = getQuestionData();
 
       let imageElement = document.getElementById('question-image');
+      imageElement.src = '';
       imageElement.src = './assets/wapuus/' + questionData.image + '.png';
 
       // show choices
