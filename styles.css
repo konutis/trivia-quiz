@@ -381,6 +381,12 @@ a.facebook-share-button:hover {
   vertical-align: middle;
 }
 
+.best-score {
+  text-align: right;
+  padding: 20px;
+  display: none;
+}
+
 @media screen and (min-width: 700px) {
   .screen-section {
     padding: 20px 50px 70px;

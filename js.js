@@ -8,6 +8,7 @@
   let mainScreen = document.querySelector('.main-screen');
   let quizScreen = document.querySelector('.quiz-screen');
   let resultScreen = document.querySelector('.result-screen');
+  let bestScoreElement = document.querySelector('.best-score');
 
   startButton.addEventListener('click', showGamePlay);
   startButton2.addEventListener('click', showGamePlay);
@@ -23,7 +24,20 @@
     mainScreen.classList.remove('hidden');
   });
 
-  let questionLength = 10;
+  let storageScore = window.localStorage.getItem('vcWapuuTriviaBestScore');
+  if (storageScore) {
+    bestScoreElement.innerHTML = `Best score: ${storageScore} out of 10`
+  }
+
+  let questionLength = window.localStorage.getItem('vcWapuuTriviaQuestionsLength');
+
+  if (!questionLength) {
+    window.localStorage.setItem('vcWapuuTriviaQuestionsLength', '10');
+    questionLength = 10
+  } else {
+    questionLength = parseInt(questionLength)
+  }
+
   let questionIndex = 0;
   let score = 0;
   let timer = null;
@@ -202,26 +216,32 @@
     scoreTotalElement.innerHTML = questionLength.toString();
     let metaText = ''
 
+    let bestScore = window.localStorage.getItem('vcWapuuTriviaBestScore');
+    if (!bestScore || (parseInt(bestScore) < parseInt(score))) {
+      window.localStorage.setItem('vcWapuuTriviaBestScore', score);
+      bestScoreElement.innerHTML = `Best score: ${score.toString()} out of 10`
+    }
+
     if (score < 4) {
       scoreNameElement.innerHTML = 'Newbuu';
       scoreImage.src = './assets/wapuu-dumb.png';
-      twitterTweetButton.href = `https://twitter.com/intent/tweet?text=My score - ${score.toString()} out of 10! I am a Newbuu! ${encodeURIComponent(location.href)}`;
-      metaText = `My score - ${score.toString()} out of 10! I am a Newbuu!`
+      twitterTweetButton.href = `https://twitter.com/intent/tweet?text=My score - ${score.toString()} out of ${questionLength.toString()}! I am a Newbuu! ${encodeURIComponent(location.href)}`;
+      metaText = `My score - ${score.toString()} out of ${questionLength.toString()}! I am a Newbuu!`
     } else if (score < 7) {
       scoreNameElement.innerHTML = 'Rookiepuu';
       scoreImage.src = './assets/wapuu-rookie.png';
-      twitterTweetButton.href = `https://twitter.com/intent/tweet?text=My score - ${score.toString()} out of 10! I am a Rookiepuu! ${ encodeURIComponent(location.href)}`;
-      metaText = `My score - ${score.toString()} out of 10! I am a Rookiepuu!`
+      twitterTweetButton.href = `https://twitter.com/intent/tweet?text=My score - ${score.toString()} out of ${questionLength.toString()}! I am a Rookiepuu! ${ encodeURIComponent(location.href)}`;
+      metaText = `My score - ${score.toString()} out of ${questionLength.toString()}! I am a Rookiepuu!`
     } else if (score < 10) {
       scoreNameElement.innerHTML = 'Wapuu expertuu';
-      twitterTweetButton.href = `https://twitter.com/intent/tweet?text=My score - ${score.toString()} out of 10! I am a Wapuu expertuu! ${encodeURIComponent(location.href)}`;
+      twitterTweetButton.href = `https://twitter.com/intent/tweet?text=My score - ${score.toString()} out of ${questionLength.toString()}! I am a Wapuu expertuu! ${encodeURIComponent(location.href)}`;
       scoreImage.src = './assets/Game-Logo.png'
-      metaText = `My score - ${score.toString()} out of 10! I am a Wapuu expertuu!`
+      metaText = `My score - ${score.toString()} out of ${questionLength.toString()}! I am a Wapuu expertuu!`
     } else {
       scoreNameElement.innerHTML = 'Grandmuuster';
       scoreImage.src = './assets/wapuu-grandmaster.png';
-      twitterTweetButton.href = `https://twitter.com/intent/tweet?text=My score - ${score.toString()} out of 10! I am a Grandmuuster! encodeURIComponent(location.href)`;
-      metaText = `My score - ${score.toString()} out of 10! I am a Grandmuuster!`
+      twitterTweetButton.href = `https://twitter.com/intent/tweet?text=My score - ${score.toString()} out of ${questionLength.toString()}! I am a Grandmuuster! encodeURIComponent(location.href)`;
+      metaText = `My score - ${score.toString()} out of ${questionLength.toString()}! I am a Grandmuuster!`
     }
 
     let metaElement = document.querySelector('meta[name=description]');
