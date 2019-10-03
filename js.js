@@ -211,10 +211,11 @@
     let scoreNameElement = document.getElementById('score-name');
     let scoreImage = document.getElementById('result-logo');
     let twitterTweetButton = document.getElementById('twitter-tweet-button');
+    let scoreDescription = document.getElementById('score-description');
 
     scoreElement.innerHTML = score.toString();
     scoreTotalElement.innerHTML = questionLength.toString();
-    let metaText = ''
+    let metaText = 'Can You Guess the Origin of Each Wappu?'
 
     let bestScore = window.localStorage.getItem('vcWapuuTriviaBestScore');
     if (!bestScore || (parseInt(bestScore) < parseInt(score))) {
@@ -225,24 +226,26 @@
     if (score < 4) {
       scoreNameElement.innerHTML = 'Newbuu';
       scoreImage.src = './assets/wapuu-dumb.png';
-      twitterTweetButton.href = `https://twitter.com/intent/tweet?text=My score - ${score.toString()} out of ${questionLength.toString()}! I am a Newbuu! ${encodeURIComponent(location.href)}`;
-      metaText = `My score - ${score.toString()} out of ${questionLength.toString()}! I am a Newbuu!`
+      metaText = `I am Newbuu - Can You Guess the Origin of Each Wappu?`
+      scoreDescription.innerHTML = 'You are not bad — you are just bad at this. We know you can do better!'
     } else if (score < 7) {
       scoreNameElement.innerHTML = 'Rookiepuu';
       scoreImage.src = './assets/wapuu-rookie.png';
-      twitterTweetButton.href = `https://twitter.com/intent/tweet?text=My score - ${score.toString()} out of ${questionLength.toString()}! I am a Rookiepuu! ${ encodeURIComponent(location.href)}`;
-      metaText = `My score - ${score.toString()} out of ${questionLength.toString()}! I am a Rookiepuu!`
+      metaText = `I am Rookiepuu - Can You Guess the Origin of Each Wappu?`
+      scoreDescription.innerHTML = 'You know enough, but there is a touch of smallness. You need more to shine!'
     } else if (score < 10) {
       scoreNameElement.innerHTML = 'Wapuu expertuu';
-      twitterTweetButton.href = `https://twitter.com/intent/tweet?text=My score - ${score.toString()} out of ${questionLength.toString()}! I am a Wapuu expertuu! ${encodeURIComponent(location.href)}`;
       scoreImage.src = './assets/Game-Logo.png'
-      metaText = `My score - ${score.toString()} out of ${questionLength.toString()}! I am a Wapuu expertuu!`
+      metaText = `I am Wapuu expertuu - Can You Guess the Origin of Each Wappu?`
+      scoreDescription.innerHTML = 'So close — you are getting hot, unable to stop. With a burning heart, you are on your way to shine!'
     } else {
       scoreNameElement.innerHTML = 'Grandmuuster';
       scoreImage.src = './assets/wapuu-grandmaster.png';
-      twitterTweetButton.href = `https://twitter.com/intent/tweet?text=My score - ${score.toString()} out of ${questionLength.toString()}! I am a Grandmuuster! encodeURIComponent(location.href)`;
-      metaText = `My score - ${score.toString()} out of ${questionLength.toString()}! I am a Grandmuuster!`
+      metaText = `I am Grandmuuster - Can You Guess the Origin of Each Wappu?`
+      scoreDescription.innerHTML = 'WooHoo! Your star hour is here! You recognize all the origins of Wapuu - a true Wapuu guru!'
     }
+
+    twitterTweetButton.href = `https://twitter.com/intent/tweet?text=${metaText} Wappu Trivia game for WordPress enthusiasts ${encodeURIComponent(location.href)}`;
 
     let metaElement = document.querySelector('meta[name=description]');
     metaElement.parentNode.removeChild(metaElement);
