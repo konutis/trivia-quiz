@@ -10,11 +10,6 @@
   let resultScreen = document.querySelector('.result-screen');
   let bestScoreElement = document.querySelector('.best-score');
 
-  let metaOgImage = document.querySelector('meta[property="og:image"]');
-  let newImage = document.createElement('img');
-  newImage.src = 'assets/facebook-wapuu-trivia-quizz.png';
-  metaOgImage.content = newImage.src;
-
   startButton.addEventListener('click', showGamePlay);
   startButton2.addEventListener('click', showGamePlay);
   startButton3.addEventListener('click', showGamePlay);

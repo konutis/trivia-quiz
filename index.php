@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta property="og:title" content="Challenge Yourself with Wappu Trivia!" />
 	<meta property="og:description" content="Can You Guess the Origin of WordPress Mascot? Wappu Trivia game." />
-	<meta property="og:image" content=""/>
+	<meta property="og:image" content="https://<?php echo $_SERVER['HTTP_HOST'].parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);?>assets/facebook-wapuu-trivia-quizz.png"/>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
